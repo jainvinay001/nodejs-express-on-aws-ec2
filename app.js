@@ -101,6 +101,7 @@ app.get('/logout', function(req, res) {
 var server = app.listen(3000, function() {
   console.log('Listening on port %d', server.address().port);
 });
+
 // const express = require('express');
 // const app = express();
 // const port = 3000;
