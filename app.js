@@ -1,6 +1,7 @@
 var express = require('express');
 var passport = require('passport');
 var util = require('util');
+const port = 3000;
 
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -98,10 +99,9 @@ app.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
-var server = app.listen(3000, function() {
-  console.log('Listening on port %d', server.address().port);
+app.listen(port, ()=> {
+ console.log(`Demo app is up and listening to port: ${port}`);
 });
-
 // const express = require('express');
 // const app = express();
 // const port = 3000;
