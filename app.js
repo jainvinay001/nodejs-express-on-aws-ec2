@@ -8,10 +8,10 @@ var session = require('express-session');
 var BnetStrategy = require('passport-bnet').Strategy;
 var GitHubStrategy = require('passport-github').Strategy;
 
-var GITHUB_ID = process.env.GITHUB_ID;
-var GITHUB_SECRET = process.env.GITHUB_SECRET;
-var BNET_ID = process.env.BNET_ID;
-var BNET_SECRET = process.env.BNET_SECRET;
+// var GITHUB_ID = process.env.GITHUB_ID;
+// var GITHUB_SECRET = process.env.GITHUB_SECRET;
+var BNET_ID = '733ce0100e254d4383453d09dc0469d9'//process.env.BNET_ID;
+var BNET_SECRET ='JBPSu8X09REIBEj0V7xXm38e0FEmEyhH' //process.env.BNET_SECRET;
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -22,17 +22,17 @@ passport.deserializeUser(function(obj, done) {
 });
 
 // Use the GitHubStrategy within Passport.
-passport.use(
-  new GitHubStrategy(
-    { clientID: GITHUB_ID,
-      clientSecret: GITHUB_SECRET,
-      callbackURL: "https://localhost/auth/github/callback" },
-    function(accessToken, refreshToken, profile, done) {
-      process.nextTick(function () {
-        return done(null, profile);
-      });
-    })
-);
+// passport.use(
+//   new GitHubStrategy(
+//     { clientID: GITHUB_ID,
+//       clientSecret: GITHUB_SECRET,
+//       callbackURL: "https://localhost/auth/github/callback" },
+//     function(accessToken, refreshToken, profile, done) {
+//       process.nextTick(function () {
+//         return done(null, profile);
+//       });
+//     })
+// );
 
 // Use the BnetStrategy within Passport.
 passport.use(
