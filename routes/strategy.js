@@ -4,10 +4,7 @@
 var util = require('util')
 var OAuth2Strategy = require('passport-oauth2')
 var InternalOAuthError = require('passport-oauth2').InternalOAuthError
-var passport = require('passport');
-var util = require('util');
-var BnetStrategy = require('passport-bnet').Strategy;
-//var GitHubStrategy = require('passport-github').Strategy;
+
 /**
  * `getHost` utility function
  *
@@ -48,24 +45,24 @@ function getHost (region) {
  *   - `scope`         array of permission scopes to request.
  *
  * Examples:
+ *
+ *     passport.use(new BnetStrategy({
+ *         clientID: '123-456-789',
+ *         clientSecret: 'shhh-its-a-secret',
+ *         region: 'us',
+ *         callbackURL: 'https://www.example.net/auth/bnet/callback'
+ *       },
+ *       function(accessToken, refreshToken, profile, done) {
+ *         User.findOrCreate(..., function (err, user) {
+ *           done(err, user);
+ *         });
+ *       }
+ *     ));
+ *
+ * @param {Object} options
+ * @param {Function} verify
+ * @api public
  */
-    passport.use(new BnetStrategy({
-        clientID: '123-456-789',
-        clientSecret: 'shhh-its-a-secret',
-        region: 'us',
-        callbackURL: 'https://www.example.net/auth/bnet/callback'
-      },
-      function(accessToken, refreshToken, profile, done) {
-        User.findOrCreate(null, (err, user) => {
-            done(err, user);
-          });
-      }
-    ));
-/*
-@param {Object} options
-@param {Function} verify
-@api public
-*/
 function Strategy (options, verify) {
   options = options || {}
   options.region = options.region || 'us'

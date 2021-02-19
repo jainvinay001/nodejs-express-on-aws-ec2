@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Test input fields</h2>
+
+<form>
+  <label for="region">region:</label><br>
+  <input type="text" id="region" name="region" value="US"><br>
+  <label for="realmSlug">realmSlug:</label><br>
+  <input type="text" id="realmSlug" name="realmSlug" value="">
+  <label for="characterName">characterName:</label><br>
+  <input type="text" id="characterName" name="characterName" value="US"><br>
+  <button name="btnAchievements" value="Achievements" onclick="achievements()"/>
+  <button name="btnEncounters " value="Encounters " onclick="encounters ()"/>
+  <button name="btnPvpStatistics" value="Pvp Statistics" onclick="pvp_statistics()"/>
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  function achievements(){
+    $.ajax({
+        url: "http://localhost:3000/achievements",
+        type: "POST",
+        data: { region: $('#region').val(),
+                realmSlug: $('#realmSlug').val(),
+                characterName: $('#characterName').val()
+              }, //send this to server
+        success: function(returned) {
+             console.log(returnet); // here can get the return of route
+        },
+        error: function() {
+
+        }
+    });
+}
+
+function encounters(){
+    $.ajax({
+        url: "http://localhost:3000/encounters",
+        type: "POST",
+        data: { region: $('#region').val(),
+                realmSlug: $('#realmSlug').val(),
+                characterName: $('#characterName').val()
+              }, //send this to server
+        success: function(returned) {
+             console.log(returnet); // here can get the return of route
+        },
+        error: function() {
+
+        }
+    });
+    function pvp_statistics(){
+    $.ajax({
+        url: "http://localhost:3000/pvpStatistics",
+        type: "POST",
+        data: { region: $('#region').val(),
+                realmSlug: $('#realmSlug').val(),
+                characterName: $('#characterName').val()
+              }, //send this to server
+        success: function(returned) {
+             console.log(returnet); // here can get the return of route
+        },
+        error: function() {
+
+        }
+    });
+}
+}
+</script>
+
+</body>
+</html>
