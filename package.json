@@ -2,7 +2,7 @@
   "name": "express",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {
+  "dependencies":{
     "battlenet-api": "^0.13.0-deprecated",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
